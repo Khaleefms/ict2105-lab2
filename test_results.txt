@@ -1,0 +1,160 @@
+Test 1:
+OnCreate() calls: 1
+OnStart() calls: 1
+onResume() calls: 1
+onRestart() calls: 0
+
+Upon starting the ActivityOne, the following message could be seen:
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+
+Test2:
+OnCreate() calls: 1
+OnStart() calls: 2
+onResume() calls: 2
+onRestart() calls: 1
+Once screen is turn off:
+Entered the onPause() method
+Entered the onStop() method
+
+Once screen is turn on:
+Entered the onRestart() method
+Entered the onStart() method
+Entered the onResume() method
+
+Test3:
+OnCreate() calls: 2
+OnStart() calls: 2
+onResume() calls: 2
+onRestart() calls: 0
+
+Switching to landscape mode:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+-----------------------------------
+OnCreate() calls: 3
+OnStart() calls: 3
+onResume() calls: 3
+onRestart() calls: 0
+
+Switching to portrait mode:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+
+Test4:
+OnCreate() calls: 1
+OnStart() calls: 1
+onResume() calls: 1
+onRestart() calls: 0
+
+Upon starting ActivityTwo:
+Entered the onPause() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+
+Test5:
+OnCreate() calls: 2
+OnStart() calls: 2
+onResume() calls: 2
+onRestart() calls: 0
+
+Switching to landscape mode:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+-----------------------------------
+OnCreate() calls: 3
+OnStart() calls: 3
+onResume() calls: 3
+onRestart() calls: 0
+
+Switching to portrait mode:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+
+Test6:
+OnCreate() calls: 1
+OnStart() calls: 1
+onResume() calls: 1
+onRestart() calls: 0
+
+Upon starting ActivityTwo:
+Entered the onPause() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+-----------------------------------
+OnCreate() calls: 1
+OnStart() calls: 2
+onResume() calls: 2
+onRestart() calls: 1
+
+Upon closing ActivityTwo:
+Entered the onPause() method
+Entered the onRestart() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+Entered the onDestroy() method
+
+Test7:
+OnCreate() calls: 1
+OnStart() calls: 1
+onResume() calls: 1
+onRestart() calls: 0
+
+Upon starting ActivityTwo:
+Entered the onPause() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+-----------------------------------
+OnCreate() calls: 1
+OnStart() calls: 2
+onResume() calls: 2
+onRestart() calls: 1
+
+Upon closing ActivityTwo:
+Entered the onPause() method
+Entered the onRestart() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+Entered the onDestroy() method
+-----------------------------------
+OnCreate() calls: 1
+OnStart() calls: 1
+onResume() calls: 1
+onRestart() calls: 0
+
+Upon starting ActivityTwo:
+Entered the onPause() method
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+Entered the onStop() method
+
+Point to take note:
+- Switching to different view(portrait to landscape or vice versa), is similar to closing, killing the app and then opening the app again.
+- If navigating to a different activity, onPause(), onCreate(), onStart(), onResume() and onStop() will be called.
+- Once an app is destroyed by calling onDestroy(), onCreate() will normally be called when an app is starting.

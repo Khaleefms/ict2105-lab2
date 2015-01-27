@@ -1,0 +1,23 @@
+When doing rotation, portrait to landscape mode or landscape to portrait mode,
+The followed message was observed on logcat:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+
+Entered the onCreate() method
+Entered the onStart() method
+Entered the onResume() method
+
+When back button was pressed, observed the following message:
+Entered the onPause() method
+Entered the onStop() method
+Entered the onDestroy() method
+
+When home button was pressed, observed the following message:
+Entered the onPause() method
+Entered the onStop() method
+
+Upon opening ActivityLab again, after home button is pressed, observed the following message:
+Entered the onRestart() method
+Entered the onStart() method
+Entered the onResume() method

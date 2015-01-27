@@ -1,0 +1,17 @@
+When back button was pressed in ActivityOne, observed the following lifecycle:
+onPause()
+onStop()
+onDestroy()
+
+When home button was pressed in ActivityOne, observed the following lifecycle:
+onPause()
+onStop()
+
+Upon opening ActivityLab again, after home button is pressed, observed the following lifecycle:
+onRestart()
+onStart()
+onResume()
+
+There is a stack of activities, but not applications. Therefore, when pressing the home button the activity in the current application just "pauses"
+as if it was a stand-by/sleeping mode, therefore multiple applications can be in this state as long as the system does not require memory and killing tasks. 
+Whenever you open the activity from the recent tasks, its just telling the application to wake up.
