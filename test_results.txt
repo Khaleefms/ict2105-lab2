@@ -8,6 +8,7 @@ Upon starting the ActivityOne, the following message could be seen:
 Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
+As the app is opened at the first time, the onCreate() is called followed by onStart() and onResume(). Normally, onStart() and onResume() goes hand in hand.
 
 Test2:
 OnCreate() calls: 1
@@ -17,11 +18,14 @@ onRestart() calls: 1
 Once screen is turn off, the following message could be seen:
 Entered the onPause() method
 Entered the onStop() method
+Once screen is turned off, onPause() and onStop() is called. This is because the activity state goes into a "sleep" mode.
 
-Once screen is turn on, the following message could be seen:
+Once screen is turned on, the following message could be seen:
 Entered the onRestart() method
 Entered the onStart() method
 Entered the onResume() method
+Once the screen is turned on, onRestart() is called to restart the activity, and then onStart(), onResume().
+The screen goes off to save resources. As the documentation states, it is recommended that activities to be able to be stopped and restarted at any time.
 
 Test3:
 OnCreate() calls: 2
@@ -50,6 +54,12 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 
+The restart behavior is designed to help your application adapt to new configurations by 
+automatically reloading your application with alternative resources that match the new device configuration.
+To properly handle a restart, it is important that your activity restores its previous state 
+through the normal Activity lifecycle, in which Android calls onSaveInstanceState() before it destroys your 
+activity so that you can save data about the application state. You can then restore the state during onCreate() or onRestoreInstanceState().
+
 Test4:
 OnCreate() calls: 1
 OnStart() calls: 1
@@ -62,6 +72,8 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 Entered the onStop() method
+
+Similar to test 1, however ActivityOne, is onPause() and onStop(), while ActivityTwo, onCreate(), onStart(), onResume().
 
 Test5:
 OnCreate() calls: 2
@@ -90,6 +102,8 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 
+Explaination similar to test 3.
+
 Test6:
 OnCreate() calls: 1
 OnStart() calls: 1
@@ -115,6 +129,9 @@ Entered the onStart() method
 Entered the onResume() method
 Entered the onStop() method
 Entered the onDestroy() method
+
+Once you press the back key the activity's onDestroy() method will be called and the activity will be flushed out of the memory. 
+You will then be required to restart the activity by calling the startActivity() method which will in turn call its onCreate() Method.
 
 Test7:
 OnCreate() calls: 1
@@ -153,6 +170,8 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 Entered the onStop() method
+
+Explainations similar to test 4 and test 6.
 
 Point to take note:
 - Switching to different view(portrait to landscape or vice versa), is similar to closing, killing the app and then opening the app again.
