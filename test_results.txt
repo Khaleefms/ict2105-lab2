@@ -8,25 +8,24 @@ Upon starting the ActivityOne, the following message could be seen:
 Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
-As the app is opened at the first time, the onCreate() is called followed by onStart() and onResume(). Normally, onStart() and onResume() goes hand in hand.
+As the ActivityOne is opened for the first time, the onCreate() is called followed by onStart() and onResume(). Normally, onStart() and onResume() goes hand in hand as shown in the life cycle documentations.
 
 Test2:
 OnCreate() calls: 1
 OnStart() calls: 2
 onResume() calls: 2
 onRestart() calls: 1
+
 Once screen is turn off, the following message could be seen:
 Entered the onPause() method
 Entered the onStop() method
-Once screen is turned off, onPause() and onStop() is called. This is because the activity state goes into a "sleep" mode.
 
 Once screen is turned on, the following message could be seen:
 Entered the onRestart() method
 Entered the onStart() method
 Entered the onResume() method
-The screen goes off to save resources, once the screen is turned on, onRestart() is called to restart the activity, and then onStart(), onResume().
-The restart behavior is designed to help your application adapt to new configurations by 
-automatically reloading your application with alternative resources that match the new device configuration.
+
+Once screen is turned off, onPause() and onStop() is called. Similar to the pressing the home button follow by going back to the activity. There is a stack of activities, but not applications. Therefore, when the screen is turned off, the activity in the current application just "pauses" as if it was a stand-by/sleeping mode, therefore multiple applications can be in this state as long as the system does not require memory by killing tasks. Whenever you open the activity from the recent tasks or when the screen turned back on, its just telling the application to wake up. The onRestart(), onStart() and onResume() will be called next, as shown in the life cycle documentations.
 
 Test3:
 OnCreate() calls: 2
@@ -55,11 +54,8 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 
-The restart behavior is designed to help your application adapt to new configurations by 
-automatically reloading your application with alternative resources that match the new device configuration.
-To properly handle a restart, it is important that your activity restores its previous state 
-through the normal Activity lifecycle, in which Android calls onSaveInstanceState() before it destroys your 
-activity so that you can save data about the application state. You can then restore the state during onCreate() or onRestoreInstanceState().
+By rotating the screen, the application adapt to new configurations by automatically reloading your application with alternative resources that match the new device configuration.
+To properly handle the rotating mode, it is important that your activity restores its previous state through the normal Activity lifecycle, in which Android calls onSaveInstanceState() before it destroys your activity so that you can save data about the application state. You can then restore the state during onCreate() or onRestoreInstanceState(). When the screen is rotated, the onPause(), onStop() and onDestory() is called. Once the ActivityOne is destroyed, its need to onCreate() again followed by onStart() and onResume().
 
 Test4:
 OnCreate() calls: 1
@@ -74,7 +70,7 @@ Entered the onStart() method
 Entered the onResume() method
 Entered the onStop() method
 
-Similar to test 1, however ActivityOne, is onPause() and onStop(), while ActivityTwo, onCreate(), onStart(), onResume().
+As the ActivityTwo is opened for the first time, the onCreate() is called followed by onStart() and onResume(). Normally, onStart() and onResume() goes hand in hand as shown in the life cycle documentations. however ActivityOne, is onPause() and onStop(), while ActivityTwo does, onCreate(), onStart(), onResume().
 
 Test5:
 OnCreate() calls: 2
@@ -103,7 +99,8 @@ Entered the onCreate() method
 Entered the onStart() method
 Entered the onResume() method
 
-Explaination similar to test 3.
+By rotating the screen, the application adapt to new configurations by automatically reloading your application with alternative resources that match the new device configuration.
+To properly handle the rotating mode, it is important that your activity restores its previous state through the normal Activity lifecycle, in which Android calls onSaveInstanceState() before it destroys your activity so that you can save data about the application state. You can then restore the state during onCreate() or onRestoreInstanceState(). When the screen is rotated, the onPause(), onStop() and onDestory() is called. Once the ActivityTwo is destroyed, its need to onCreate() again followed by onStart() and onResume().
 
 Test6:
 OnCreate() calls: 1
@@ -131,8 +128,8 @@ Entered the onResume() method
 Entered the onStop() method
 Entered the onDestroy() method
 
-Once you press the back key the activity's onDestroy() method will be called and the activity will be flushed out of the memory. 
-You will then be required to restart the activity by calling the startActivity() method which will in turn call its onCreate() Method.
+Once you press the back key the activity got remove from the stack of activies. The ActivityOne will get onPause(), onStop() and onDestroy() method will be called and the activity will be flushed out of the memory. 
+ActivityOne will be onRestart, onStart() and onResume().
 
 Test7:
 OnCreate() calls: 1
@@ -172,9 +169,10 @@ Entered the onStart() method
 Entered the onResume() method
 Entered the onStop() method
 
-Explainations similar to test 4 and test 6.
+Once you press the back key the activity got remove from the stack of activies. The ActivityOne will get onPause(), onStop() and onDestroy() method will be called and the activity will be flushed out of the memory. ActivityOne will be onRestart, onStart() and onResume().
+As the ActivityTwo is treated to be opened for the first time again, the onCreate() is called followed by onStart() and onResume(). Normally, onStart() and onResume() goes hand in hand as shown in the life cycle documentations. however ActivityOne, is onPause() and onStop(), while ActivityTwo does, onCreate(), onStart(), onResume().
 
 Point to take note:
 - Switching to different view(portrait to landscape or vice versa), is similar to closing, killing the app and then opening the app again.
-- If navigating to a different activity, onPause(), onCreate(), onStart(), onResume() and onStop() will be called.
 - Once an app is destroyed by calling onDestroy(), onCreate() will normally be called when an app is starting.
+- The life cycle steps are pretty much ordered.

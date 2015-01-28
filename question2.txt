@@ -13,5 +13,5 @@ onStart()
 onResume()
 
 There is a stack of activities, but not applications. Therefore, when pressing the home button the activity in the current application just "pauses"
-as if it was a stand-by/sleeping mode, therefore multiple applications can be in this state as long as the system does not require memory and killing tasks. 
-Whenever you open the activity from the recent tasks, its just telling the application to wake up.
+as if it was a stand-by/sleeping mode, therefore multiple applications can be in this state as long as the system does not require memory by killing tasks. 
+Whenever you open the activity from the recent tasks, its just telling the application to wake up. However, for the back button, activity got remove from the stack of activies.
