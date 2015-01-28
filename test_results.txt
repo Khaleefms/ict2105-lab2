@@ -24,8 +24,9 @@ Once screen is turned on, the following message could be seen:
 Entered the onRestart() method
 Entered the onStart() method
 Entered the onResume() method
-Once the screen is turned on, onRestart() is called to restart the activity, and then onStart(), onResume().
-The screen goes off to save resources. As the documentation states, it is recommended that activities to be able to be stopped and restarted at any time.
+The screen goes off to save resources, once the screen is turned on, onRestart() is called to restart the activity, and then onStart(), onResume().
+The restart behavior is designed to help your application adapt to new configurations by 
+automatically reloading your application with alternative resources that match the new device configuration.
 
 Test3:
 OnCreate() calls: 2
